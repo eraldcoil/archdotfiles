@@ -1,0 +1,72 @@
+URxvt.matcher.pattern.1:   \bwww\.[\w-]\.[\w./?&@#-]*[\w/-]
+urxvt.perl-ext-common:     default,matcher
+URxvt*modifier: mod4
+URxvt.urgentOnBell: true
+
+URxvt*termName: rxvt-256color
+!# borderless and no scrollbar
+URxvt*scrollBar_right: false
+URxvt*scrollBar: false
+URxvt*borderLess: false
+!## teh transparency stuff
+URxvt*inheritPixmap: true
+URxvt*tintColor: white
+URxvt*shading: 22
+URxvt*fading: 2%
+!## geometry and font
+! URxvt*geometry: 84×24
+URxvt*font: xft:inconsolata :pixelsize=14
+# URxvt*font: -xos4-terminus-medium-r-normal-*-12-120-72-72-c-60-*-*
+! URxvt*font: -*-terminus-medium-*-normal-*-12-120-*-72-c-*-iso8859-*
+! URxvt*font: -*-inconsolata-medium-*-normal-*-17-*-*-*-*-*-iso10646-*
+!transparency
+URxvt*background: rgba:1111/1111/1111/dddd
+URxvt*depth:10 
+## change default colors
+URxvt*background: #000000
+URxvt*foreground: #A8A8A8
+#Rxvt*foreground: #000000
+! ! URxvt*color0: #000000
+! URxvt*color1: #A80000
+! URxvt*color2: #00A800
+! URxvt*color3: #A85400
+! URxvt*color4: #0000A8
+! URxvt*color5: #A800A8
+! URxvt*color6: #00A8A8
+! URxvt*color7: #A8A8A8
+! URxvt*color8: #545054
+! URxvt*color9: #F85450
+! URxvt*color10: #50FC50
+! URxvt*color11: #F2FC50
+! URxvt*color12: #5054F8
+! URxvt*color13: #F854F8
+! URxvt*color14: #50FCF8
+! URxvt*color15: #F8FCF8
+#*background:                                #171717
+#*foreground:                                #ffffff
+
+#! Black --------------------------------------------
+*color0:                            #292929
+*color8:                            #3d3d3d
+#! Red ----------------------------------------------
+#*color1:                            #DE6951
+##*color9:                            #c56a47
+#! Green --------------------------------------------
+*color2:                            #bcda55
+*color10:                            #9dbf60
+#! Yellow -------------------------------------------
+*color3:                            #E2A564
+*color11:                            #EC8A25
+#! Blue ---------------------------------------------
+*color4:                            #2187F6
+*color12:                            #5495DC
+#! Magenta ------------------------------------------
+*color5:                            #875C8D
+#*color13:                            #E41F66
+#! Cyan ---------------------------------------------
+*color6:                            #4390B1
+*color14:                            #276CC2
+##! White --------------------------------------------
+*color7:                            #D2D2D2
+*color15:                            #ffffff
+####! EOD ----------------------------------------------

@@ -1,0 +1,100 @@
+# Conky, a system monitor, based on torsmo
+#
+# Any original torsmo code is licensed under the BSD license
+#
+# All code written since the fork of torsmo is licensed under the GPL
+#
+# Please see COPYING for details
+#
+# Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+# Copyright (c) 2005-2010 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+# All rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+# conkyrc file for dzen
+###
+
+background no
+out_to_console yes
+out_to_x no
+update_interval 1
+total_run_times 0
+mpd_host 192.168.0.5
+mpd_port 6600
+#font -*-terminus-*-*-*-*-12-*-*-*-*-*-iso8859-*
+font xft:Terminus:pixelsize=11
+
+#TEXT
+#UT:$uptime Date: ${time %a,%b %d/%y %l:%M%P}
+background no
+own_window yes
+own_window_type override # desktop dock panel override normal
+own_window_transparent yes
+own_window_colour yellow
+own_window_hints below,skip_taskbar,skip_pager
+own_window_title top
+own_window_class top
+double_buffer yes
+use_spacer right
+override_utf8_locale yes
+use_xft yes
+#xftfont DejaVu Sans Mono:bold:size=8
+#xftalpha 1.0 
+#update_interval 1
+uppercase no
+stippled_borders 0
+border_inner_margin 0
+border_width 0
+default_outline_color black
+default_shade_color black
+draw_borders no
+draw_graph_borders no
+draw_outline no
+draw_shades no
+
+# Colors
+default_color DCDCDC #Gainsboro
+color0 7FFF00 #Chartreuse
+color1 FFA07A #LightSalmon
+color2 FF8C00 #Darkorange
+color3 778899 #LightSlateGrey
+color4 FFD700 #Gold
+color5 FFDEAD #NavajoWhite
+color6 00BFFF #DeepSkyBlue
+color7 48D1CC #MediumTurquoise
+color8 FFFF00 #Yellow
+color9 FF0000 #Red
+
+text_buffer_size 1028
+no_buffers yes
+short_units yes
+pad_percents 2
+alignment tm
+gap_x 00
+gap_y -1000
+
+minimum_size 675 0
+maximum_width 675
+
+#TEXT
+#${color3}CPU: ${color7}${cpu cpu0}${goto 50}${color3}% RAM: ${color7}${memperc} ${color3}${goto 110}% Disk: ${color7}${fs_used_perc /}${goto 176}${color3}% ${color7}Temps: ${color3}CPU: ${color7}${execpi 8 sensors | grep 'Core0' | cut --characters 15-16}°${goto 290}${color3}GPU: ${color7}${execpi 8 sh -c "DISPLAY=:0.0 nvclock -T | grep GPU | cut -c21-22"}°${goto 350}${color3}SDA: ${color7}${execpi 8 hddtemp -n /dev/sda}°${goto 410}${color3}eth0: ${color7}${addr eth0} ${color3}UP${color6}/${color6}DN: ${color3}${upspeed eth0}${color6}/${color6}${downspeed eth0}${color}
+
+
+TEXT
+^i(xbm8x8/cpu.xbm) ${fs_free} \
+^i(xbm8x8/cpu.xbm) ${cpu cpu1}% \
+^i(xbm8x8/mem.xbm) $memperc% \
+^i(xbm8x8/ac_01.xbm) ${battery_short BAT1} \
+^i(xbm8x8/clock.xbm) ^p(5)${time %b %e %H:%M:%S %Z}^p(5)
