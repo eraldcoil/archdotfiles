@@ -136,12 +136,12 @@ customPP :: PP
 customPP = defaultPP
 	{
 	-- display current workspace as darkgrey on light grey 
-	--ppCurrent		= dzenColor "#303030" "#909090" . pad
-	--ppCurrent = wrapFgBg myCurrentWsFgColor myCurrentWsBgColor
-	--ppCurrent = wrap "^fg(#000000)^bg(#a6c292) " " ^fg()^bg()"
-        ppCurrent = dzenColor myOrange my20grey . wrap ( "^i(" ++ myBitmapsPath ++ "plus.xbm)"  ) "" . dzenColor myBlue "". pad
-        -- ppCurrent         = dzenColor my30grey my90grey . wrap ("^fg(" ++ myIFGColor ++ ")^i(" ++ myBitmapsPath ++ "plus.xbm)") "". pad
-        --ppCurrent   = wrap "^fg(#eeeeee)^bg(#89b83f)^p(2)^i(~/xbm8x8/eye_l.xbm)" "^p(2)^fg()^bg()"
+	--ppCurrent  = dzenColor "#303030" "#909090" . pad
+	--ppCurrent  = wrapFgBg myCurrentWsFgColor myCurrentWsBgColor
+	--ppCurrent  = wrap "^fg(#000000)^bg(#a6c292) " " ^fg()^bg()"
+        ppCurrent    = dzenColor myOrange my20grey . wrap ( "^i(" ++ myBitmapsPath ++ "plus.xbm)"  ) "" . dzenColor myBlue "". pad
+        -- ppCurrent = dzenColor my30grey my90grey . wrap ("^fg(" ++ myIFGColor ++ ")^i(" ++ myBitmapsPath ++ "plus.xbm)") "". pad
+        --ppCurrent  = wrap "^fg(#eeeeee)^bg(#89b83f)^p(2)^i(~/xbm8x8/eye_l.xbm)" "^p(2)^fg()^bg()"
 	-- display other workspaces which contain windows as a brighter grey
        ,ppHidden 	= dzenColor mydrkyllw "" . wrap ("^i(" ++ myBitmapsPath ++ "square_nv.xbm)") "" .dzenColor mydrkblue "" . pad
 	-- display other workspaces with no windows as a normal grey
@@ -170,28 +170,28 @@ customPP = defaultPP
 	}
 	where
     		wrapBitmap bitmap = "^p(9)^i(" ++ myBitmapsPath ++ bitmap ++ ")^p(9)"
---myStatusBar = "dzen2 -p -ta l -fn Verdana-8 -x 0 -y 0 -w 450 -h 15 -fg '#606060' -bg '#303030' "
-my11grey = "#1c1818"
-my14blue = "#1463f4"
-my30grey = "#303030"
--- my30grey = "#ff0000"
-myBlue   = "#1464F4"
-mydrkblue= "#031c4b"
-myOrange = "#ffa500"
-myOrange2= "#ffce73"
-mydarkOr= "#794f00"
--- myYellow = "#ffd700"
-myYellow = "#ffcf00"
-mydrkyllw= "#4a4400"
-myWhite  = "#ffffff"
-myRed    = "#ff0000"
-my20grey = "#202020"
-my90grey = "#909090"
--- my90grey = "#0000ff"
+--myStatusBar  = "dzen2 -p -ta l -fn Verdana-8 -x 0 -y 0 -w 450 -h 15 -fg '#606060' -bg '#303030' "
+my11grey       = "#1c1818"
+my14blue       = "#1463f4"
+my30grey       = "#303030"
+-- my30grey    = "#ff0000"
+myBlue         = "#1464F4"
+mydrkblue      = "#031c4b"
+myOrange       = "#ffa500"
+myOrange2      = "#ffce73"
+mydarkOr       = "#794f00"
+-- myYellow    = "#ffd700"
+myYellow       = "#ffcf00"
+mydrkyllw      = "#4a4400"
+myWhite        = "#ffffff"
+myRed          = "#ff0000"
+my20grey       = "#202020"
+my90grey       = "#909090"
+-- my90grey    = "#0000ff"
 
-myIFGColor = "#ffffff" -- Icon
--- myIFGColor ="#000000"
--- myRIFGColor ="#ff0000"
+myIFGColor     = "#ffffff" -- Icon
+-- myIFGColor  = "#000000"
+-- myRIFGColor = "#ff0000"
 
 myStatusBar = "dzen2 -w 650 -h 18 -ta l -fg '#3EB5FF' -bg '#000000'"
 
@@ -201,13 +201,13 @@ main = do
        myConkyPipe <- spawnPipe myConky
        -- xmonad $ withUrgencyHook dzenUrgencyHook { args = ["-bg", "brickred", "-xs", "1"] } $ xfceConfig 
        xmonad $ withUrgencyHook NoUrgencyHook $ xfceConfig
-       	{ 
-		borderWidth        = 1,
-		terminal           = "urxvt",
-		normalBorderColor  = "#00cccc", 
-		focusedBorderColor = "#cd8b00", 
-		workspaces = myWorkSpaces,
-	        manageHook = myManageHook <+> manageDocks,  
-		logHook    = logHook' myStatusBarPipe,
-		layoutHook = myLayoutHook' 
-       	} 
+        { 
+                borderWidth        = 1,
+                terminal           = "urxvt",
+                normalBorderColor  = "#00cccc",
+                focusedBorderColor = "#cd8b00",
+                workspaces         = myWorkSpaces,
+                manageHook         = myManageHook <+> manageDocks,
+                logHook            = logHook' myStatusBarPipe,
+                layoutHook         = myLayoutHook'
+        } 

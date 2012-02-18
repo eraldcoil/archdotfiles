@@ -2,6 +2,9 @@
 " ~/.vimrc by pbrisbin 2009
 "
 
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+call pathogen#infect()
 " OPTIONS {{{
 " set 256 colors if we can
 if $TERM =~ "-256color"
@@ -17,6 +20,7 @@ if $TERM =~ "rxvt"
   silent !echo -e "\e]12;white\x9c"
   set t_Co=256
   colorscheme desert
+  " colorscheme jellybeans
 endif
 
 " set the window title in screen
@@ -80,6 +84,7 @@ let maplocalleader = ','
 let python_highlight_all=1
 let python_highlight_space_errors=1
 let python_fold=1
+autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 " lua
 let lua_fold=1
@@ -360,4 +365,10 @@ nmap <leader>l :set list!<CR>
 "  
 "  " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:›\ ,eol:¬
+
+nnoremap <silent> <F8> :TlistToggle<CR>
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Close_On_Select = 1
+let Tlist_Exit_OnlyWindow = 1
+let g:SuperTabDefaultCompletionType = "context"
 
